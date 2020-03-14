@@ -1,0 +1,30 @@
+stages:
+  - build
+  - staging
+
+build:
+  stage: build
+  script:
+    - echo "Build the app"
+    - pwd
+    - ls -l 
+  artifacts:
+    paths:
+      - html
+
+staging:
+  stage: staging
+  script:
+    - echo "stage"
+  environment:
+    name: staging
+    url: http://staging.$APPS_DOMAIN
+  only:
+    - master
+  tags:
+    - nginx
+    - review-apps
+    - deploy
+   
+
+    
