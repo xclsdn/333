@@ -11,6 +11,8 @@ build:
   artifacts:
     paths:
       - html
+  tags:
+    - tx
 
 staging:
   stage: staging
@@ -22,9 +24,8 @@ staging:
   only:
     - master
   tags:
-    - nginx
-    - review-apps
-    - deploy
+    - tx
+
    
 
     
